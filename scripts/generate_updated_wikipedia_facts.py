@@ -5,7 +5,7 @@
 Generates an updated Wikipedia facts JSON file.
 """
 
-from __future__ import print_function
+
 
 import os
 import json
@@ -157,14 +157,14 @@ queries = {
 
 # Execute and store the result of each query.
 query_results = {}
-for key, query in queries.items():
+for key, query in list(queries.items()):
   cursor.execute(query)
 
   current_query_results = []
   for i, result in enumerate(cursor.fetchall()):
     tokens = []
     for token in result:
-      if not isinstance(token, (int, long)):
+      if not isinstance(token, int):
         token = token.encode('utf-8').replace('_', ' ')
       tokens.append(token)
 

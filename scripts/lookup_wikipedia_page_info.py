@@ -5,7 +5,7 @@
 Looks up Wikipedia page information via the official Wikipedia API given a list of page IDs.
 """
 
-from __future__ import print_function
+
 
 import requests
 
@@ -84,14 +84,14 @@ redirects = []
 if len(response_pages) == 0:
   print('[ERROR] No pages found.')
 else:
-  for page_id, page in response_pages.iteritems():
+  for page_id, page in response_pages.items():
     if page_id == '-1':
       errors.append('[ERROR] Page title "{0}" does not exist'.format(page['title']))
     elif 'missing' in page:
       errors.append('[ERROR] Page ID {0} does not exist'.format(page_id))
     elif 'redirect' in page:
       redirect_response = query_wikipedia_api('pageids', [page_id], True)
-      (redirected_page_id, redirected_page) = redirect_response.items()[0]
+      (redirected_page_id, redirected_page) = list(redirect_response.items())[0]
       redirects.append((page['title'].encode('utf-8'),
                         page_id,
                         redirected_page['title'].encode('utf-8'),

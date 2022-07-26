@@ -5,6 +5,7 @@ sdow/searches.sqlite
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+.DS_STORE
 
 # C extensions
 *.so
@@ -56,3 +57,4 @@ docs/_build/
 
 # PyBuilder
 target/
+data/

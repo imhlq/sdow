@@ -96,7 +96,7 @@ if [ ! -f redirects.txt.gz ]; then
     | sed -n 's/^INSERT INTO `redirect` VALUES (//p' \
     | sed -e 's/),(/\'$'\n/g' \
     | egrep "^[0-9]+,0," \
-    | sed -e $"s/,0,'/\t/g" \
+    | sed -e "s/,0,'/\t/g" \
     | sed -e "s/','.*//g" \
     | pigz --fast > redirects.txt.gz.tmp
   mv redirects.txt.gz.tmp redirects.txt.gz
@@ -119,8 +119,8 @@ if [ ! -f pages.txt.gz ]; then
     | sed -n 's/^INSERT INTO `page` VALUES (//p' \
     | sed -e 's/),(/\'$'\n/g' \
     | egrep "^[0-9]+,0," \
-    | sed -e $"s/,0,'/\t/" \
-    | sed -e $"s/',[^,]*,\([01]\).*/\t\1/" \
+    | sed -e "s/,0,'/\t/" \
+    | sed -e "s/',[^,]*,\([01]\).*/\t\1/" \
     | pigz --fast > pages.txt.gz.tmp
   mv pages.txt.gz.tmp pages.txt.gz
 else
@@ -142,7 +142,7 @@ if [ ! -f links.txt.gz ]; then
     | sed -n 's/^INSERT INTO `pagelinks` VALUES (//p' \
     | sed -e 's/),(/\'$'\n/g' \
     | egrep "^[0-9]+,0,.*,0$" \
-    | sed -e $"s/,0,'/\t/g" \
+    | sed -e "s/,0,'/\t/g" \
     | sed -e "s/',0//g" \
     | pigz --fast > links.txt.gz.tmp
   mv links.txt.gz.tmp links.txt.gz

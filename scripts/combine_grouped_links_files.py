@@ -4,7 +4,7 @@ Combines the incoming and outgoing links (as well as their counts) for each page
 Output is written to stdout.
 """
 
-from __future__ import print_function
+
 
 import io
 import sys
@@ -40,7 +40,7 @@ for line in io.BufferedReader(gzip.open(INCOMING_LINKS_FILE, 'r')):
 
 # For each page in the links dictionary, print out its incoming and outgoing links as well as their
 # counts.
-for page_id, links in LINKS.iteritems():
+for page_id, links in LINKS.items():
   outgoing_links = links.get('outgoing', '')
   outgoing_links_count = 0 if outgoing_links is '' else len(
       outgoing_links.split('|'))
