@@ -1,5 +1,7 @@
 # Six Degrees of Wikipedia
 
+This is a personal version of SDOW, see original [github](https://github.com/jwngr/sdow)
+
 [![Six Degrees of Wikipedia Logo](/website/src/images/logo@2x.png)](https://www.sixdegreesofwikipedia.com/)
 
 [Six Degrees of Wikipedia](https://www.sixdegreesofwikipedia.com) is a website which traverses
@@ -8,11 +10,13 @@ nearly six million pages on the world's largest free online encyclopedia.
 
 ## Table of Contents
 
-* [Documentation](#documentation)
-* [Blog Posts](#blog-posts)
-* [Inspiration](#inspiration)
-* [Resources](#resources)
-* [Contributing](#contributing)
+- [Six Degrees of Wikipedia](#six-degrees-of-wikipedia)
+  - [Table of Contents](#table-of-contents)
+  - [Documentation](#documentation)
+  - [Blog Posts](#blog-posts)
+  - [Inspiration](#inspiration)
+  - [Resources](#resources)
+  - [Contributing](#contributing)
 
 ## Documentation
 

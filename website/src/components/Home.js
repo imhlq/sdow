@@ -59,7 +59,7 @@ class Home extends Component {
             fan with no affiliation to that organization.
           </p>
           <p>
-            A project by <a href="https://jwn.gr/">Jacob Wenger</a>.
+            A personal version from project by Jacob Wenger.
           </p>
         </Modal>
 

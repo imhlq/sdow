@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import Loadable from 'react-loadable';
 import Particles from 'react-particles-js';
 import {ThemeProvider} from 'styled-components';
 import {Route, Switch} from 'react-router-dom';
@@ -21,16 +20,6 @@ import './index.css';
 require('typeface-quicksand');
 require('typeface-crimson-text');
 
-// Async components
-const AsyncBlog = Loadable({
-  loader: () => import('./components/blog/Blog'),
-  loading: () => null,
-});
-
-const AsyncBlogPost = Loadable({
-  loader: () => import('./components/blog/BlogPost'),
-  loading: () => null,
-});
 
 // Create the Redux store.
 const store = configureStore();
@@ -51,12 +40,6 @@ ReactDOM.render(
         <ConnectedRouter history={history}>
           <>
             <Switch>
-              <Route path="/blog/:postId">
-                <AsyncBlogPost />
-              </Route>
-              <Route path="/blog">
-                <AsyncBlog />
-              </Route>
               <Route path="/">
                 <Home />
               </Route>
