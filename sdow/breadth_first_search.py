@@ -70,8 +70,8 @@ def breadth_first_search(source_page_id, target_page_id, database):
   while (len(paths) == 0) and ((len(unvisited_forward) != 0) and (len(unvisited_backward) != 0)):
     # Run the next iteration of the breadth first search in whichever direction has the smaller number
     # of links at the next level.
-    forward_links_count = database.fetch_outgoing_links_count(unvisited_forward.keys())
-    backward_links_count = database.fetch_incoming_links_count(unvisited_backward.keys())
+    forward_links_count = database.fetch_outgoing_links_count(list(unvisited_forward.keys()))
+    backward_links_count = database.fetch_incoming_links_count(list(unvisited_backward.keys()))
 
     if forward_links_count < backward_links_count:
       #---  FORWARD BREADTH FIRST SEARCH  ---#
@@ -80,7 +80,7 @@ def breadth_first_search(source_page_id, target_page_id, database):
       # Fetch the pages which can be reached from the currently unvisited forward pages.
       # The replace() bit is some hackery to handle Python printing a trailing ',' when there is
       # only one key.
-      outgoing_links = database.fetch_outgoing_links(unvisited_forward.keys())
+      outgoing_links = database.fetch_outgoing_links(list(unvisited_forward.keys()))
 
       # Mark all of the unvisited forward pages as visited.
       for page_id in unvisited_forward:
@@ -108,7 +108,7 @@ def breadth_first_search(source_page_id, target_page_id, database):
       backward_depth += 1
 
       # Fetch the pages which can reach the currently unvisited backward pages.
-      incoming_links = database.fetch_incoming_links(unvisited_backward.keys())
+      incoming_links = database.fetch_incoming_links(list(unvisited_backward.keys()))
 
       # Mark all of the unvisited backward pages as visited.
       for page_id in unvisited_backward:

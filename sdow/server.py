@@ -2,14 +2,10 @@
 Server web framework.
 """
 
-from __future__ import print_function
-
 import os
 import time
 import logging
-import google.cloud.logging
 
-from sets import Set
 from flask_cors import CORS
 from database import Database
 from flask_compress import Compress
@@ -133,7 +129,7 @@ def shortest_paths_route():
   # Paths found
   else:
     # Get a list of all IDs
-    page_ids_set = Set()
+    page_ids_set = set()
     for path in paths:
       for page_id in path:
         page_ids_set.add(str(page_id))

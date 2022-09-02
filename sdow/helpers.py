@@ -61,7 +61,7 @@ def fetch_wikipedia_pages_info(page_ids, database):
       })
       raise error
 
-    for page_id, page in pages_result.iteritems():
+    for page_id, page in list(pages_result.items()):
       page_id = int(page_id)
 
       if 'missing' in page:
@@ -141,7 +141,7 @@ def is_str(val):
     bool: Whether or not the provided value is a string type.
   """
   try:
-    return isinstance(val, basestring)
+    return isinstance(val, str)
   except NameError:
     return isinstance(val, str)
 
